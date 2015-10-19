@@ -1,0 +1,13 @@
+<h2>KNX Clock</h2>
+<pre><code hljs javascript>
+parser.on('read', function(src, dest) {
+    var action = actions.getActionFromGAD(dest);
+    if (action) {
+        (...)
+        if (action.virtual) {
+            if ((action.type === 'time') || (action.type === 'date')) {
+                knx.write(action.id, actions.decodeVal(action, null));
+            }
+        }
+});
+</code></pre>

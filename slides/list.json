@@ -1,0 +1,29 @@
+[
+    "index.html",
+    "aboutme.html",
+    "howitallbegan.html",
+    {
+        "filename": "rudere.html",
+        "attr": {
+            "data-background": "img/rudere.jpg"
+        }
+    },
+    "idea.html",
+    "requirements.html",
+    "knx.html",
+    "problems.html",
+    "knx-concepts-1.html",
+    "knx-concepts-2.html",
+    "and-then.html",
+    "logical-architecture.html",
+    "components.html",
+    "configuration.html",
+    "software-knx-modules.html",
+    "software-knx-modules-2.html",
+    "interface.html",
+    "interface-2.html",
+    "demo.html",
+    "missing-features.html",
+    "next-steps.html",
+    "thanks.html"
+]

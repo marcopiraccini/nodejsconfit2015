@@ -1,0 +1,33 @@
+<pre><code hljs javascript>
+this.write = function(id, value, callback) {
+    var action = actions.getAction(id);
+    if (!action) {
+        var errorMessage = 'Action with id '+ id + ' not found';
+        return callback(errorMessage);
+    }
+
+    var address = eibd.str2addr(action.gad);
+    var conn = eibd.Connection();
+    conn.socketRemote({ host: that.knxHost, port: that.knxPort}, function(err) {
+        if (err) {return callback(err);}
+        conn.openTGroup(address, 1, function (err) {
+            if(err) {return callback(err);}
+            var dptType;
+            if ((action.type === 'temp') || (action.type === 'float')) {
+                dptType = 'DPT5';
+            } else if (action.type === 'time') {
+                dptType = 'DPT10';
+                value = getCurrentTime();
+            } else if (action.type === 'date') {
+                dptType = 'DPT11';
+                value = getCurrentDate();
+            } else {
+                dptType = 'DPT3';
+            }
+            var msg = eibd.createMessage('write',
+                dptType, actions.encodeVal(action, value));
+            conn.sendAPDU(msg, callback);
+        });
+    });
+};
+</code></pre>

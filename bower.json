@@ -1,0 +1,9 @@
+{
+  "name": "ho-to-implement-a-controllerfor-a-home-automation-system-using-nodejs-and-a-rpi",
+  "version": "0.0.1",
+  "dependencies": {
+    "reveal.js": "~3.1.0",
+    "highlightjs": "~8.5.0",
+    "components-font-awesome": "~4.4.0"
+  }
+}
